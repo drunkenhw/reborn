@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
+import org.springframework.security.test.context.support.TestExecutionEvent;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -38,7 +38,7 @@ class CommentControllerTest extends ControllerConfig {
 
 
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetails(value = "email@naver.com", setupBefore = TestExecutionEvent.TEST_EXECUTION)
     @DisplayName("댓글 등록 : POST /api/v1/articles/{articleId}/comments")
     void createComment() throws Exception {
         Member member = Member.builder().email("user").memberRole(MemberRole.USER).build();

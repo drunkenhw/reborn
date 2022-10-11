@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.TestExecutionEvent;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -164,7 +165,7 @@ public class MemberControllerTest extends ControllerConfig {
     }
 
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetails(value = "email@naver.com", setupBefore = TestExecutionEvent.TEST_EXECUTION)
     @DisplayName("회원탈퇴 : DELETE /api/v1/members/me")
     void deleteMember() throws Exception {
         Member member = Member.builder().email("user").password("a").memberRole(MemberRole.USER).build();

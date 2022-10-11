@@ -42,7 +42,6 @@ public class WorkoutSearchRepository implements WorkoutQuerydslRepository {
                                         .from(qWorkoutImage)
                                         .where(qWorkoutImage.workout.eq(workout))
                         ))
-                .groupBy(workout)
                 .where(
                         containsWorkoutTitle(cond.getTitle()),
                         containsWorkoutAuthor(cond.getNickname()),
@@ -70,7 +69,6 @@ public class WorkoutSearchRepository implements WorkoutQuerydslRepository {
                                         .from(qWorkoutImage)
                                         .where(qWorkoutImage.workout.eq(workout))
                         ))
-                .groupBy(workout)
                 .where(
                         equalsWorkoutCategory(category)
                 )

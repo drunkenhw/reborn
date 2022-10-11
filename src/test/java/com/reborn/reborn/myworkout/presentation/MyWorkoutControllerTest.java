@@ -11,6 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.test.context.support.TestExecutionEvent;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -74,7 +75,7 @@ class MyWorkoutControllerTest extends ControllerConfig {
                         )));
     }
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetails(value = "email@naver.com", setupBefore = TestExecutionEvent.TEST_EXECUTION)
     @DisplayName("내 운동 추가 : POST /api/v1/workouts/me/{workoutId}")
     void workoutCreate() throws Exception {
         //given
