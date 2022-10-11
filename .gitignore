@@ -36,10 +36,7 @@ out/
 ### VS Code ###
 .vscode/
 
-<<<<<<< HEAD
 ##amazon
 application-amazon.yml
-*.yml
 =======
 
->>>>>>> 9eb7a9156bb689a82bdb467883e4bbff22d792f6
