@@ -4,11 +4,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class RecordTodayResponse {
+public class RecordTodayResponse implements Serializable {
     private long back;
     private long chest;
     private long lowerBody;

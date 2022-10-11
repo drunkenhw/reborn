@@ -8,6 +8,7 @@ import com.reborn.reborn.record.domain.repository.RecordRepository;
 import com.reborn.reborn.record.presentation.dto.RecordTodayResponse;
 import com.reborn.reborn.record.presentation.dto.RecordWeekResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,6 +41,7 @@ public class RecordService {
 
     }
 
+    @Cacheable(value = "RecordWeekResponse", key = "{#memberId, #localDate}", condition = "#localDate != #localDate.now()")
     public RecordTodayResponse getTodayRecord(Long memberId, LocalDate localDate) {
         List<Record> records = recordRepository.findTodayRecordByMemberId(memberId, dateIfNullReturnNow(localDate));
         RecordTodayResponse response = new RecordTodayResponse();
@@ -47,6 +49,7 @@ public class RecordService {
         return response;
     }
 
+    @Cacheable(value = "RecordWeekResponse", key = "{#memberId, #localDate}", condition = "#localDate != #localDate.now()")
     public RecordWeekResponse getWeekRecord(Long memberId, LocalDate localDate) {
         LocalDate date = dateIfNullReturnNow(localDate);
         return recordRepository.findWeekMyRecord(memberId, date).orElse(new RecordWeekResponse());

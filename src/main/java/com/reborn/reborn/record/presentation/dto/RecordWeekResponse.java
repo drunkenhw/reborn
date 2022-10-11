@@ -4,9 +4,11 @@ import com.querydsl.core.annotations.QueryProjection;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Getter
 @NoArgsConstructor
-public class RecordWeekResponse {
+public class RecordWeekResponse implements Serializable {
     private long mon;
     private long tue;
     private long wed;
