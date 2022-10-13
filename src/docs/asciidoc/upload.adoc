@@ -15,7 +15,7 @@ endif::[]
 
 == 파일 업로드
 
-`POST /api/v1/file`
+`POST /api/v1/files`
 
 === Request
 

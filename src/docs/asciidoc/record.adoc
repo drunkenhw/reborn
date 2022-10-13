@@ -15,7 +15,7 @@ endif::[]
 
 == Record 생성
 
-`POST /api/v1/record`
+`POST /api/v1/records`
 
 === Request
 
@@ -29,7 +29,7 @@ include::{snippets}/record-create/http-response.adoc[]
 
 == Record 일간 기록 조회
 
-`GET /api/v1/record/day`
+`GET /api/v1/records/day`
 
 === Request
 
@@ -44,7 +44,7 @@ include::{snippets}/record-get-today/response-fields.adoc[]
 
 == Record 주간 기록 조회
 
-`GET /api/v1/record/week`
+`GET /api/v1/records/week`
 
 === Request
 

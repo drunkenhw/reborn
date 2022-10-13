@@ -15,7 +15,7 @@ endif::[]
 
 == 운동 리스트 조회
 
-`GET /api/v1/workout?id=1&category=BACK`
+`GET /api/v1/workouts?id=1&category=BACK`
 
 === Request
 
@@ -30,7 +30,7 @@ include::{snippets}/workout-getPagingList/response-fields.adoc[]
 
 == 운동 생성
 
-`POST /api/v1/workout`
+`POST /api/v1/workouts`
 
 === Request
 
@@ -44,7 +44,7 @@ include::{snippets}/workout-create/http-response.adoc[]
 
 == 운동 상세 조회
 
-`GET /api/v1/workout/{id}`
+`GET /api/v1/workouts/{id}`
 
 === Request
 
@@ -59,7 +59,7 @@ include::{snippets}/workout-getMyWorkout/response-fields.adoc[]
 
 == 운동 삭제
 
-`DELETE /api/v1/workout/{id}`
+`DELETE /api/v1/workouts/{id}`
 
 === Request
 
@@ -75,7 +75,7 @@ include::{snippets}/workout-delete/http-response.adoc[]
 
 == 운동 수정
 
-`PATCH /api/v1/workout/{id}`
+`PATCH /api/v1/workouts/{id}`
 
 === Request
 
@@ -91,7 +91,7 @@ include::{snippets}/workout-delete/http-response.adoc[]
 
 == 운동 랭킹 리스트 조회
 
-`GET /api/v1/workout/rank?id=1&category=BACK`
+`GET /api/v1/workouts/rank?id=1&category=BACK`
 
 === Request
 

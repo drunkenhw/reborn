@@ -15,7 +15,7 @@ endif::[]
 
 == 내 운동 조회
 
-`GET /api/v1/my-workout`
+`GET /api/v1/workouts/me`
 
 === Request
 
@@ -32,7 +32,7 @@ include::{snippets}/my-workout-getPagingList/response-fields.adoc[]
 
 == 내 운동 추가
 
-`POST /api/v1/my-workout/{id}`
+`POST /api/v1/workouts/me/{id}`
 
 === Request
 
@@ -47,7 +47,7 @@ include::{snippets}/my-workout-addMyWorkout/http-response.adoc[]
 
 == 내 운동 삭제
 
-`DELETE /api/v1/my-workout/{id}`
+`DELETE /api/v1/workouts/me/{id}`
 
 === Request
 
@@ -63,7 +63,7 @@ include::{snippets}/my-workout-delete/http-response.adoc[]
 
 == 내 프로그램 조회
 
-`GET /api/v1/my-workout/program`
+`GET /api/v1/workouts/me/program`
 
 === Request
 
