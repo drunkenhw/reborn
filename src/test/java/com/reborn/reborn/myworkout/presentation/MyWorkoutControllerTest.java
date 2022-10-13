@@ -2,6 +2,7 @@ package com.reborn.reborn.myworkout.presentation;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.reborn.reborn.config.ControllerConfig;
+import com.reborn.reborn.config.WithUserDetailsCustom;
 import com.reborn.reborn.myworkout.presentation.dto.MyWorkoutResponse;
 import com.reborn.reborn.common.presentation.dto.Slice;
 import com.reborn.reborn.member.domain.Member;
@@ -11,8 +12,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.security.test.context.support.TestExecutionEvent;
-import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 
 
@@ -41,7 +40,7 @@ class MyWorkoutControllerTest extends ControllerConfig {
     private MyWorkoutService myWorkoutService;
 
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetailsCustom
     @DisplayName("내 운동 리스트 페이지 조회 : Get /api/v1/workouts/me")
     void getPagingWorkout() throws Exception {
         //given
@@ -75,7 +74,7 @@ class MyWorkoutControllerTest extends ControllerConfig {
                         )));
     }
     @Test
-    @WithUserDetails(value = "email@naver.com", setupBefore = TestExecutionEvent.TEST_EXECUTION)
+    @WithUserDetailsCustom
     @DisplayName("내 운동 추가 : POST /api/v1/workouts/me/{workoutId}")
     void workoutCreate() throws Exception {
         //given
@@ -94,7 +93,7 @@ class MyWorkoutControllerTest extends ControllerConfig {
     }
 
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetailsCustom
     @DisplayName("내 운동 삭제 : Delete /api/v1/workouts/me/{workoutId}")
     void deleteWorkout() throws Exception {
         //given
@@ -113,7 +112,7 @@ class MyWorkoutControllerTest extends ControllerConfig {
     }
 
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetailsCustom
     @DisplayName("내 운동 프로그램 : Get /api/v1/workouts/me/program")
     void getMyWorkoutProgram() throws Exception {
         //given

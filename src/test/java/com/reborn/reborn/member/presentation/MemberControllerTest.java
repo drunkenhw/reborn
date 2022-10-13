@@ -3,6 +3,7 @@ package com.reborn.reborn.member.presentation;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.reborn.reborn.config.ControllerConfig;
+import com.reborn.reborn.config.WithUserDetailsCustom;
 import com.reborn.reborn.member.domain.Member;
 import com.reborn.reborn.member.domain.MemberRole;
 import com.reborn.reborn.member.application.MemberService;
@@ -15,8 +16,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.TestExecutionEvent;
-import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -105,7 +104,7 @@ public class MemberControllerTest extends ControllerConfig {
                         )));
     }
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetailsCustom
     @DisplayName("비밀번호 변경 : PATCH /api/v1/change-password")
     void changePassword() throws Exception {
         Member member = Member.builder().email("user").password("a").memberRole(MemberRole.USER).build();
@@ -126,7 +125,7 @@ public class MemberControllerTest extends ControllerConfig {
                 ));
     }
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetailsCustom
     @DisplayName("회원정보 수정 : PATCH /api/v1/members/me")
     void modifyMember() throws Exception {
         Member member = Member.builder().email("user").password("a").memberRole(MemberRole.USER).build();
@@ -151,7 +150,7 @@ public class MemberControllerTest extends ControllerConfig {
 
 
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetailsCustom
     @DisplayName("회원 정보 조회 : Get /api/v1/members/me")
     void getOne() throws Exception {
         //given
@@ -165,7 +164,7 @@ public class MemberControllerTest extends ControllerConfig {
     }
 
     @Test
-    @WithUserDetails(value = "email@naver.com", setupBefore = TestExecutionEvent.TEST_EXECUTION)
+    @WithUserDetailsCustom
     @DisplayName("회원탈퇴 : DELETE /api/v1/members/me")
     void deleteMember() throws Exception {
         Member member = Member.builder().email("user").password("a").memberRole(MemberRole.USER).build();

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.reborn.reborn.comment.application.CommentService;
 import com.reborn.reborn.comment.presentation.dto.CommentRequestDto;
 import com.reborn.reborn.config.ControllerConfig;
+import com.reborn.reborn.config.WithUserDetailsCustom;
 import com.reborn.reborn.member.domain.Member;
 import com.reborn.reborn.member.domain.MemberRole;
 import org.junit.jupiter.api.DisplayName;
@@ -11,8 +12,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.TestExecutionEvent;
-import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.Mockito.when;
@@ -38,7 +37,7 @@ class CommentControllerTest extends ControllerConfig {
 
 
     @Test
-    @WithUserDetails(value = "email@naver.com", setupBefore = TestExecutionEvent.TEST_EXECUTION)
+    @WithUserDetailsCustom
     @DisplayName("댓글 등록 : POST /api/v1/articles/{articleId}/comments")
     void createComment() throws Exception {
         Member member = Member.builder().email("user").memberRole(MemberRole.USER).build();

@@ -2,8 +2,8 @@ package com.reborn.reborn.record.presentation;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.reborn.reborn.config.ControllerConfig;
+import com.reborn.reborn.config.WithUserDetailsCustom;
 import com.reborn.reborn.member.domain.Member;
-import com.reborn.reborn.member.domain.MemberRole;
 import com.reborn.reborn.record.presentation.dto.RecordRequest;
 import com.reborn.reborn.record.presentation.dto.RecordTodayResponse;
 import com.reborn.reborn.record.presentation.dto.RecordWeekResponse;
@@ -15,8 +15,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
-import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
@@ -46,7 +44,7 @@ class RecordControllerTest extends ControllerConfig {
 
 
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetailsCustom
     @DisplayName("기록 생성 : POST /api/v1/records")
     void recordCreate() throws Exception {
         //given
@@ -70,7 +68,7 @@ class RecordControllerTest extends ControllerConfig {
 
 
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetailsCustom
     @DisplayName("오늘 기록 조회 : GET /api/v1/records/day")
     void getTodayRecord() throws Exception {
         //given
@@ -94,7 +92,7 @@ class RecordControllerTest extends ControllerConfig {
     }
 
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetailsCustom
     @DisplayName("주간 기록 조회 : GET /api/v1/records/week")
     void getWeekRecord() throws Exception {
         //given

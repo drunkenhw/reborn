@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.reborn.reborn.common.presentation.dto.FileDto;
 import com.reborn.reborn.common.presentation.dto.Slice;
 import com.reborn.reborn.config.ControllerConfig;
+import com.reborn.reborn.config.WithUserDetailsCustom;
 import com.reborn.reborn.member.domain.Member;
 import com.reborn.reborn.member.domain.MemberRole;
 import com.reborn.reborn.workout.domain.Workout;
@@ -15,7 +16,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ class WorkoutControllerTest extends ControllerConfig {
 
 
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetailsCustom
     @DisplayName("운동 생성 : POST /api/v1/workouts")
     void workoutCreate() throws Exception {
         //given
@@ -83,7 +83,7 @@ class WorkoutControllerTest extends ControllerConfig {
 
 
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetailsCustom
     @DisplayName("운동 조회 : Get /api/v1/workouts/{workoutId}")
     void getMyWorkout() throws Exception {
         //given
@@ -162,7 +162,7 @@ class WorkoutControllerTest extends ControllerConfig {
     }
 
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetailsCustom
     @DisplayName("운동 삭제 : Delete /api/v1/workouts/{workoutId}")
     void deleteWorkout() throws Exception {
         //given
@@ -181,7 +181,7 @@ class WorkoutControllerTest extends ControllerConfig {
     }
 
     @Test
-    @WithUserDetails(value = "email@naver.com")
+    @WithUserDetailsCustom
     @DisplayName("운동 수정 : PATCH  /api/v1/workouts/{workoutId}")
     void editWorkout() throws Exception {
         //given

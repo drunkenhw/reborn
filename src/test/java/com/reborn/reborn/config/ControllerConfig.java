@@ -21,7 +21,7 @@ import java.util.Date;
 @AutoConfigureRestDocs
 @Import({RestDocsConfig.class})
 @SpringBootTest
-public class ControllerConfig {
+public class ControllerConfig extends AbstractContainerBaseTest {
 
     private AuthToken token;
     @Autowired
