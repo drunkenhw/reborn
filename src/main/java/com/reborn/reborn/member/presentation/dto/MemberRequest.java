@@ -7,7 +7,7 @@ import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 @Getter
 @Builder
@@ -15,11 +15,12 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class MemberRequest {
     @Email
+    @NotBlank
     private String email;
-    @NotNull
+    @NotBlank
     @Length(min = 1,max = 20)
     private String password;
-    @NotNull
+    @NotBlank
     @Length(min = 1)
     private String nickname;
     private String phone;

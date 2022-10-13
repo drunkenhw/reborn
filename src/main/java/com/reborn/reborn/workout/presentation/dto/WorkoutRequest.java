@@ -4,6 +4,7 @@ import com.reborn.reborn.common.presentation.dto.FileDto;
 import com.reborn.reborn.workout.domain.WorkoutCategory;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +15,9 @@ import java.util.List;
 @AllArgsConstructor
 public class WorkoutRequest {
 
-    @NotNull
+    @NotBlank
     private String workoutName;
-    @NotNull
+    @NotBlank
     private String content;
     @NotNull
     private WorkoutCategory workoutCategory;

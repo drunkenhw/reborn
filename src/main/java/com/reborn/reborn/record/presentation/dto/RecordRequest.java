@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -12,9 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 public class RecordRequest {
 
-    @NotNull
+    @NotBlank
     private Long myWorkoutId;
-    @NotNull
+    @NotBlank
     private Long total;
     @NotNull
     private WorkoutCategory workoutCategory;
